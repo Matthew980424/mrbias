@@ -1,0 +1,143 @@
+dw_roi_1:
+  roi_type: "cylinder"
+  roi_radius_mm: 8.0
+  roi_height_mm: 20.0
+  ctr_vox_coords: [73, 85, 8]
+
+dw_roi_2:
+  roi_type: "cylinder"
+  roi_radius_mm: 8.0
+  roi_height_mm: 20.0
+  ctr_vox_coords: [75, 111, 8] #[39, 39, 8]
+
+dw_roi_3:
+      roi_type: "cylinder"
+      roi_radius_mm: 8.0
+      roi_height_mm: 20.0
+      ctr_vox_coords: [73, 138, 8] #[39, 39, 8]
+
+dw_roi_4:
+  roi_type: "cylinder"
+  roi_radius_mm: 8.0
+  roi_height_mm: 20.0
+  ctr_vox_coords: [99, 86, 8]
+
+dw_roi_5:
+  roi_type: "cylinder"
+  roi_radius_mm: 8.0
+  roi_height_mm: 20.0
+  ctr_vox_coords: [100, 112, 8] #[39, 39, 8]
+
+dw_roi_6:
+      roi_type: "cylinder"
+      roi_radius_mm: 8.0
+      roi_height_mm: 20.0
+      ctr_vox_coords: [100, 137, 8] #[39, 39, 8]
+
+dw_roi_7:
+ roi_type: "cylinder"
+ roi_radius_mm: 8.0
+ roi_height_mm: 20.0
+ ctr_vox_coords: [126, 86, 8]
+
+dw_roi_8:
+ roi_type: "cylinder"
+ roi_radius_mm: 8.0
+ roi_height_mm: 20.0
+ ctr_vox_coords: [126, 113, 8] #[39, 39, 8]
+
+dw_roi_9:
+     roi_type: "cylinder"
+     roi_radius_mm: 8.0
+     roi_height_mm: 20.0
+     ctr_vox_coords: [126, 138, 8] #[39, 39, 8]
+
+dw_roi_10:
+ roi_type: "cylinder"
+ roi_radius_mm: 8.0
+ roi_height_mm: 20.0
+ ctr_vox_coords: [151, 86, 8] #[39, 39, 8]
+
+dw_roi_11:
+ roi_type: "cylinder"
+ roi_radius_mm: 8.0
+ roi_height_mm: 20.0
+ ctr_vox_coords: [152, 112, 8] #[39, 39, 8]
+
+dw_roi_12:
+ roi_type: "cylinder"
+ roi_radius_mm: 8.0
+ roi_height_mm: 20.0
+ ctr_vox_coords: [151, 139, 8] #[39, 39, 8]
+
+#dw_roi_1:
+#  roi_type: "cylinder"
+#  roi_radius_mm: 8.0
+#  roi_height_mm: 20.0
+#  ctr_vox_coords: [26, 87, 8]
+#
+#dw_roi_2:
+#  roi_type: "cylinder"
+#  roi_radius_mm: 8.0
+#  roi_height_mm: 20.0
+#  ctr_vox_coords: [27, 112, 8] #[39, 39, 8]
+#
+#dw_roi_3:
+#      roi_type: "cylinder"
+#      roi_radius_mm: 8.0
+#      roi_height_mm: 20.0
+#      ctr_vox_coords: [26, 138, 8] #[39, 39, 8]
+#
+#dw_roi_4:
+#  roi_type: "cylinder"
+#  roi_radius_mm: 8.0
+#  roi_height_mm: 20.0
+#  ctr_vox_coords: [48, 86, 8]
+#
+#dw_roi_5:
+#  roi_type: "cylinder"
+#  roi_radius_mm: 8.0
+#  roi_height_mm: 20.0
+#  ctr_vox_coords: [50, 112, 8] #[39, 39, 8]
+#
+#dw_roi_6:
+#      roi_type: "cylinder"
+#      roi_radius_mm: 8.0
+#      roi_height_mm: 20.0
+#      ctr_vox_coords: [49, 137, 8] #[39, 39, 8]
+#
+#dw_roi_7:
+# roi_type: "cylinder"
+# roi_radius_mm: 8.0
+# roi_height_mm: 20.0
+# ctr_vox_coords: [178, 86, 8]
+#
+#dw_roi_8:
+# roi_type: "cylinder"
+# roi_radius_mm: 8.0
+# roi_height_mm: 20.0
+# ctr_vox_coords: [179, 114, 8] #[39, 39, 8]
+#
+#dw_roi_9:
+#     roi_type: "cylinder"
+#     roi_radius_mm: 8.0
+#     roi_height_mm: 20.0
+#     ctr_vox_coords: [177, 141, 8] #[39, 39, 8]
+#
+#dw_roi_10:
+# roi_type: "cylinder"
+# roi_radius_mm: 8.0
+# roi_height_mm: 20.0
+# ctr_vox_coords: [206, 88, 8] #[39, 39, 8]
+#
+#dw_roi_11:
+# roi_type: "cylinder"
+# roi_radius_mm: 8.0
+# roi_height_mm: 20.0
+# ctr_vox_coords: [207, 113, 8] #[39, 39, 8]
+#
+#dw_roi_12:
+# roi_type: "cylinder"
+# roi_radius_mm: 8.0
+# roi_height_mm: 20.0
+# ctr_vox_coords: [207, 140, 8] #[39, 39, 8]
