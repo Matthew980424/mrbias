@@ -1,4 +1,0 @@
-# Ignore everything by default, then re-include Python files.
-*
-!*/
-!*.py
