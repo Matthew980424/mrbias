@@ -1033,7 +1033,7 @@ class CurveFitAbstract(ABC):
                             # where S_ref is the first included signal sample.
                             signal_ref = voxel_series[0]
                             voxel_series = np.log(voxel_series/signal_ref)
-                            popt_res = linregress(measurement_series, voxel_series)
+                            popt_res = spstat.linregress(measurement_series, voxel_series)
                             slope = popt_res.slope
                             intercept = popt_res.intercept
                             slope_err = popt_res.stderr

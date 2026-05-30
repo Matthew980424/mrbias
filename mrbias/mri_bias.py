@@ -327,8 +327,10 @@ class MRBIAS(object):
                 roi_template_dir = os.path.join(mu.reference_template_directory(), "philips_mrlinac_1p5T_emer_m260414A_s1_dwtemp")
             elif roi_template == "philips_mrlinac_1p5T_emer_m260415A_s1_dwtemp":
                 roi_template_dir = os.path.join(mu.reference_template_directory(), "philips_mrlinac_1p5T_emer_m260415A_s1_dwtemp")
-            elif roi_template == "philips_mrlinac_1p5T_emer_m2600512A":
-                roi_template_dir = os.path.join(mu.reference_template_directory(), "philips_mrlinac_1p5T_emer_m2600512A")
+            elif roi_template == "philips_mrlinac_1p5T_emer_m260512A":
+                roi_template_dir = os.path.join(mu.reference_template_directory(), "philips_mrlinac_1p5T_emer_m260512A")
+            elif roi_template == "philips_mrlinac_1p5T_emer_m260512A_dwtemp":
+                roi_template_dir = os.path.join(mu.reference_template_directory(), "philips_mrlinac_1p5T_emer_m260512A_dwtemp")
             # ... add others
 
             # determine which detection method
@@ -849,6 +851,9 @@ class MRBIAS(object):
     def write_pdf_aggregated_diffusion_page(self, mdl_list, c, data_dir):
         df_list = []
         model_names = []
+        symbol_of_interest = mdl_list[0].get_symbol_of_interest()
+        mean_col_name = "%s (mean)" % symbol_of_interest
+        reference_col_name = "%s_reference" % symbol_of_interest
         for mdl in mdl_list:
             df_list.append(mdl.get_summary_dataframe())
             temp_sup_title = "- CurveFit [%s - %s] <%s>" % (mdl.get_model_name(),
@@ -858,12 +863,12 @@ class MRBIAS(object):
         # calculate summary metrics and create summary df
         comb_df = pd.concat(df_list, ignore_index=True)
         sorted_df = comb_df.sort_values(by='RoiIndex', ascending=True)
-        pooled_df = sorted_df.groupby('RoiLabel')['ADC (mean)'].agg(['mean', 'std'])
+        pooled_df = sorted_df.groupby('RoiLabel')[mean_col_name].agg(['mean', 'std'])
         pooled_df = pooled_df.sort_values(by='RoiLabel', key=lambda x: x.str.extract('(\d+)', expand=False).astype(int))
-        pooled_df['RC_st'] = 2.77 * pooled_df.iloc[:, 1]  # Assuming column 1 is ADC
+        pooled_df['RC_st'] = 2.77 * pooled_df.iloc[:, 1]  # Use the pooled standard deviation for the target symbol
         pooled_df['CV_st'] = 100 * pooled_df.iloc[:, 1] / pooled_df.iloc[:, 0]
         df_list[0] = df_list[0].set_index('RoiLabel')
-        pooled_df['ref'] = df_list[0]['ADC_reference']
+        pooled_df['ref'] = df_list[0][reference_col_name]
 
         pooled_df['bias (%)'] = 100 * ((pooled_df['mean'] - pooled_df['ref']) / pooled_df['ref'])
         pooled_df.reset_index(inplace=True)
