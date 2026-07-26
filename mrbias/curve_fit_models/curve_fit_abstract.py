@@ -1482,7 +1482,7 @@ class CurveFitAbstract(ABC):
             for roi_name in roi_labels:
                 df_ROIS = df_plot.drop_duplicates(subset=["RoiLabel"])
                 df_roi = df_ROIS[df_ROIS["RoiLabel"] == roi_name]
-                roi_ref_relax_val = df_roi[reference_label]
+                roi_ref_relax_val = df_roi[reference_label].iloc[0]
                 if symbol_of_interest == "D":
                     xtick_label_vec.append("%s\n(%s=%0.2f µm²/s)" % (roi_name,
                                                                         reference_label.replace("_reference", "_ref"),

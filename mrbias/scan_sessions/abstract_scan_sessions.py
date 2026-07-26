@@ -187,7 +187,7 @@ class ScanSessionAbstract(ABC):
         # -----------------------------------------------------------------
         # group the image sets together and label numerically (i.e. t1_vir_0, t1_vir_0)
         df = self.meta_data_df.copy(deep=True)
-        df['Category'].replace(IMAGE_UNKNOWN_STR, np.nan, inplace=True)
+        df['Category'] = df['Category'].replace(IMAGE_UNKNOWN_STR, np.nan)
         df.dropna(subset=['Category'], inplace=True)
         df = df.drop_duplicates(subset=["SeriesInstanceUID"])
         for category_name, variables_of_interest in zip(category_list, variable_interest_list):
@@ -350,7 +350,7 @@ class ScanSessionAbstract(ABC):
 
         df = self.meta_data_df.copy(deep=True)
         if not self.display_unknown_series:
-            df['Category'].replace(IMAGE_UNKNOWN_STR, np.nan, inplace=True)
+            df['Category'] = df['Category'].replace(IMAGE_UNKNOWN_STR, np.nan)
             df.dropna(subset=['Category'], inplace=True)
         df = df.drop_duplicates(subset=["SeriesInstanceUID", "Category"])
         table_width = 182 + 10
@@ -375,9 +375,9 @@ class ScanSessionAbstract(ABC):
     # same output as log but to pdf
     def write_pdf_summary_page(self, c):
         df = self.meta_data_df.copy(deep=True)
-        df['Category'].replace('', np.nan, inplace=True)
+        df['Category'] = df['Category'].replace('', np.nan)
         if not self.display_unknown_series:
-            df['Category'].replace(IMAGE_UNKNOWN_STR, np.nan, inplace=True)
+            df['Category'] = df['Category'].replace(IMAGE_UNKNOWN_STR, np.nan)
         df.dropna(subset=['Category'], inplace=True)
         df = df.drop_duplicates(subset=["SeriesInstanceUID", "Category"])
         table_width = 174
@@ -698,7 +698,7 @@ class ScanSessionAbstract(ABC):
             repetition_time_list = [x[1] for x in image_and_param_list]
             series_instance_uids = [x[2] for x in image_and_param_list]
             # load up each of the echo images
-            unique_param_list = pd.unique(param_list)
+            unique_param_list = pd.Index(param_list).unique().tolist()
             col_list = dicom_tag_list + ["RepetitionTime", "SeriesUID", "SeriesNumber",
                                          "SOPInstanceUID", "ImageFilePath", "SliceLocation",
                                          "BitsAllocated", "BitsStored", "RescaleSlope", "RescaleIntercept"]
@@ -928,7 +928,7 @@ class ScanSessionAbstract(ABC):
     # get the date and time of the first image
     def get_study_date_time(self):
         df = self.meta_data_df.copy(deep=True)
-        df['Category'].replace('', np.nan, inplace=True)
+        df['Category'] = df['Category'].replace('', np.nan)
         df.dropna(subset=['Category'], inplace=True)
         df = df.drop_duplicates(subset=["SeriesInstanceUID"])
         return df.StudyDate.iloc[0], df.StudyTime.iloc[0]
