@@ -335,6 +335,12 @@ class MRBIAS(object):
                 roi_template_dir = os.path.join(mu.reference_template_directory(), "philips_mrlinac_1p5T_emer_m260723A")
             elif roi_template == "philips_mrlinac_1p5T_emer_m260723A_dwtemp":
                 roi_template_dir = os.path.join(mu.reference_template_directory(), "philips_mrlinac_1p5T_emer_m260723A_dwtemp")
+            elif roi_template == "philips_mrlinac_1p5T_emer_m260910A_dwtemp":
+                roi_template_dir = os.path.join(mu.reference_template_directory(), "philips_mrlinac_1p5T_emer_m260910A_dwtemp")
+            elif roi_template == "philips_mrlinac_1p5T_emer_m261007A":
+                roi_template_dir = os.path.join(mu.reference_template_directory(), "philips_mrlinac_1p5T_emer_m261007A")
+            elif roi_template == "philips_mrlinac_1p5T_emer_m261007A_dwtemp":
+                roi_template_dir = os.path.join(mu.reference_template_directory(), "philips_mrlinac_1p5T_emer_m261007A_dwtemp")
             # ... add others
 
             # determine which detection method

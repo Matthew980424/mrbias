@@ -38,9 +38,9 @@ if str(root) not in sys.path:
 from mrbias import MRBIAS
 
 # specify the configuration file to control the analysis
-configuration_filename = os.path.join(root, os.path.join("config", "relaxometry_Emer_CustomPhantom.yaml")) # relaxometry_Emer_CustomPhantom.yaml
+configuration_filename = os.path.join(root, os.path.join("config", "diffusion_Emer_CustomPhantom.yaml"))
 # specific the dicom directories to analyse
-dicom_directory_a = "data\\M260723A\\T1T2"
+dicom_directory_a = r"E:\project\4dphantom\MRBias_250211\data\M271007A\ADC\s1"
 # dicom_directory_a = 'C:\DICOM\dicomserver150e\data\M250908A'
 
 # create a MRBIAS analysis object
